@@ -5,13 +5,13 @@ NAND flash blocks that are no longer reliable for storing and retrieving data ar
 </p>
 
 <p align = "justify">
-We comprehensively characterize the performance and reliability features of the 3D CT NAND flash and summarize critical observations. Two observations are attractive. First, page lifetime within a block has a _significant difference_, as shown in the following figure:
+We comprehensively characterize the performance and reliability features of the 3D CT NAND flash and summarize critical observations. Two observations are attractive. First, page lifetime within a block has a significant difference, as shown in the following figure:
 </p>
 
 ![image](https://github.com/BaiShuhan/LA-BBM/blob/main/figures/%20Page%20lifetime%20distribution%20within%20a%20block.png)
 
 <p align = "justify">
-Second, the lifetime distribution of different WLs in a flash block exhibits *intra-layer concentration* and *cross-layer variation*, as shown in the following figure:
+Second, the lifetime distribution of different WLs in a flash block exhibits intra-layer concentration and cross-layer variation, as shown in the following figure:
 </p>
 
 ![image](https://github.com/BaiShuhan/LA-BBM/blob/main/figures/%20Lifetime%20distributions%20of%20WLs%20within%20a%20block.png)
