@@ -1,0 +1,144 @@
+parameter file: page.parameters
+trace file: ts0_16GB.ascii
+TEST_TYPE: new bbm
+X_BBM: 0.30
+-----------------------parameter file----------------------
+#parameter file
+dram capacity = 8388608;     #the unit is B    8388608
+chip number[0] = 2;
+chip number[1] = 2;
+chip number[2] = 0;
+chip number[3] = 0;
+chip number[4] = 0;
+chip number[5] = 0;
+chip number[6] = 0;
+chip number[7] = 0;
+chip number[8] = 0;
+chip number[9] = 0;
+chip number[10] = 0;
+chip number[11] = 0;
+chip number[12] = 0;
+chip number[13] = 0;
+chip number[14] = 0;
+chip number[15] = 0;
+chip number[16] = 0;
+chip number[17] = 0;
+chip number[18] = 0;
+channel number = 2;   		#the number of channel
+chip number = 4;
+die number = 1;      
+plane number = 1;
+block number = 256;
+page number = 576;
+subpage page = 4; 				#can not beyond 32
+page capacity = 16384;			#8kB
+subpage capacity = 4096;			
+t_PROG = 1100000;             #the unit is ns
+t_DBSY = 500;
+t_BERS = 10000000;
+t_PROGO = 1100000;            #one shot program time
+t_ERSL = 500000;             #the trans time of suspend/resume operation
+t_R = 90000;
+t_WC = 5;
+t_RC = 5;
+t_CLS = 12;
+t_CLH = 5;
+t_CS = 20;
+t_CH = 5;
+t_WP = 12;
+t_ALS = 12;
+t_ALH = 5;
+t_DS = 12;
+t_DH = 5;
+t_WH = 10;
+t_ADL = 70;
+t_AR = 10;
+t_CLR = 10;
+t_RR = 20;
+t_RP = 12;
+t_WB = 100;
+t_REA = 30;
+t_CEA = 45;
+t_RHZ = 100;
+t_CHZ = 30;
+t_RHOH = 15;
+t_RLOH = 5;
+t_COH = 15;
+t_REH = 10;
+t_IR = 0;
+t_RHW = 100;
+t_WHR = 60;
+t_RST = 5000;
+erase limit=100000;              #记录block最大次数擦写次数
+overprovide=0.2;				 #op空间大小
+requset queue depth=8; 			 #请求队列深度
+scheduling algorithm=1;          #记录使用哪种调度算法，1:FCFS
+buffer management=0;             #缓存策略：0：sub_page拼凑
+address mapping=1;               #映射表策略：1：page；2：4kb_map(目前只支持page-level)
+wear leveling=1;                 #WL算法
+gc=1;                            #gc策略：1：superblock
+gc hard threshold=0.04;          #gc硬阈值大小，当plane内无效页个数超过此阈值时，触发强制gc操作，立刻执行gc
+gc soft threshold=0.04;          #gc软阈值大小，当plane内无效页个数超过此阈值时，触发gc请求，是否执行需判断当前IO忙闲
+allocation=0;                    #分配方式，0：动态分配，1：静态分配，2：基于负载感知分配
+static_allocation=2;			 #tlc mode静态分配方式类型，0：plane>superpage>channel>chip>die, 1:superpage>plane>channel>chip>die, 2:channel>chip>plane>superpage>die, 3:channel>chip>superpage>plane>die
+dynamic_allocation=0;	 		 #slc mode动态分配方式优先级，0：channel>chip>die>plane,1：plane>channel>chip>die,2:stripe_poll,3:stripe_distance,4:stripe_poll_dis
+advanced command=0;             #高级命令支持，用二进制表示，无(00000)、mutli plane(00001), half-page-read(00010), one shot program(00100),one shot read(01000),erase suspend/resume(10000)
+greed MPW command=1;             #multi-plane贪心算法，0：非贪心，1：贪心
+aged=0;                          #旧化处理，0：non-aged，1：aged
+aged ratio=0.5;                	 #旧化率
+warm flash=1;					 #是否预处理flash, 0:warmflash, 1:non-warmflash	
+flash mode=0;					 #flash支持模式，0：slc,1：tlc
+-----------------------simulation output----------------------
+the 0 channel, 0 chip, 0 die, 0 plane has : 118832 erase operations,  0 read operations,33482009 write operations,77018 pre_process write operations
+the 0 channel, 1 chip, 0 die, 0 plane has : 114178 erase operations,  0 read operations,32491784 write operations,76785 pre_process write operations
+the 1 channel, 0 chip, 0 die, 0 plane has : 118880 erase operations,  0 read operations,33486618 write operations,76939 pre_process write operations
+the 1 channel, 1 chip, 0 die, 0 plane has : 114196 erase operations,  0 read operations,32496286 write operations,76738 pre_process write operations
+
+
+---------------------------statistic data---------------------------
+min lsn:         74584
+max lsn:      27337488
+read count:             0
+the read operation leaded by un-covered update count:      25830174
+the read operation leaded by gc read count:             0
+
+program count:     131956697
+the write operation leaded by pre_process write count:             0
+the write operation leaded by un-covered update count:      25830174
+the write operation leaded by gc read count:             0
+
+erase count:        233043
+direct erase count:             0
+gc count:        220437
+
+multi-plane program count:             0
+multi-plane read count:             0
+
+mutli plane one shot program count :             0
+one shot program count :             0
+
+half page read count :             0
+one shot read count :             0
+mutli plane one shot read count :             0
+
+erase suspend count :             0
+erase resume  count :             0
+suspend read  count :             0
+
+update sub request count :            14
+write flash count:     131956697
+
+read request count: 86829147
+write request count: 407034111
+
+read request average size:     27.357259
+write request average size:     16.015336
+
+read request average response time: 6090021.108906
+write request average response time: 1423164.085506
+
+buffer read hits:       1571268
+buffer read miss:     144943262
+buffer write hits:     529095740
+buffer write miss:     125763560
+
